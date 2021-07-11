@@ -1,5 +1,5 @@
-import { IdValue } from "../../ObjectValue";
-import { Entity, ReadRepository } from "../Domain";
+import { IdValue } from "./../../object-value";
+import { Entity, QueryFilter, ReadRepository } from "./../domain";
 
 export class Query {
     protected repository: ReadRepository;
@@ -14,18 +14,18 @@ export class Query {
         this.repository = repository;
     }
 
-    public findAll(): Promise<Entity[]> {
+    public findAll(filter?: QueryFilter): Promise<Entity[]> {
         return this.repository.findAll();
     }
 
-    public findById(id: IdValue): Promise<Entity> {
+    public findById(id: IdValue): Promise<Entity | undefined> {
         if (id === null || id === undefined || id.value === null) {
             throw new Error("Invalid arguments");
         }
         return this.repository.findById(id);
     }
 
-    findAllByClient(id: IdValue): Promise<Entity[]> {
+    findAllByClient(id: IdValue, filter?: QueryFilter): Promise<Entity[]> {
         if (id === null || id === undefined || id.value === null) {
             throw new Error("Invalid arguments");
         }

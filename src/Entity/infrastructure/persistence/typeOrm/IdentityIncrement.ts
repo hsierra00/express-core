@@ -1,6 +1,6 @@
 import { PrimaryGeneratedColumn } from "typeorm";
-import { Identity } from "../../../Domain";
-import { IdValue } from "../../../../ObjectValue";
+import { Identity } from "./../../../domain";
+import { IdValue } from "./../../../../object-value";
 
 export abstract class IdentityIncrement implements Identity {
 

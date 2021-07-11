@@ -1,4 +1,4 @@
-import { StatusValue } from "../../ObjectValue/StatusValue";
+import { StatusValue } from "./../../object-value/status-value";
 
 export interface Status {
     Status(): StatusValue;

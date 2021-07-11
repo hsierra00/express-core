@@ -1,4 +1,4 @@
-import { OperationResult } from "..";
+import { OperationResult } from "./";
 
 /**
  * 

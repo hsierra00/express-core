@@ -1,8 +1,8 @@
-import { IdValue } from "../../../../ObjectValue";
 import { DeepPartial, Repository } from "typeorm";
-import { Entity, QueryFilter } from "../../../Domain";
+import { IdValue } from "./../../../../object-value";
+import { EditRepository, Entity, QueryFilter, ReadRepository } from "./../../../domain";
 
-export class TypeOrmRepository<T extends Entity> {
+export class TypeOrmRepository<T extends Entity> implements ReadRepository, EditRepository {
 
     protected repository: Repository<T>;
 
@@ -17,33 +17,17 @@ export class TypeOrmRepository<T extends Entity> {
      * 
      * @returns 
      */
-    findAll(): Promise<T[]> {
+    findAll(filter?: QueryFilter): Promise<T[]> {
         return this.repository.find();
-    }
-
-    /**
-     * the real method must be implemented in repositories child class.
-     * @returns 
-     */
-    findAllFilter(filter: QueryFilter): Promise<T[]> {
-        return this.findAll();
     }
 
     /**
      * 
      * @returns 
      */
-    findAllByClient(id: IdValue): Promise<T[]> {
+    findAllByClient(id: IdValue, filter?: QueryFilter): Promise<T[]> {
         const qb = this.repository.createQueryBuilder("qb");
         return qb.where("qb.clientId = :id", { id: id.value }).getMany();
-    }
-
-    /**
-     * the real method must be implemented in repositories child class.
-     * @returns 
-     */
-    findAllFilterByClient(id: IdValue, filter: QueryFilter): Promise<T[]> {
-        return this.findAllByClient(id);
     }
 
     /**

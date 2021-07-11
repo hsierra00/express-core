@@ -1,6 +1,6 @@
 {
   "name": "express-core-chasqui",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Base library to develop enterprise application, based in express framework.",
   "author": "hsierra00",
   "license": "MIT",

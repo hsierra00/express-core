@@ -1,6 +1,6 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
-import { IdValue } from "../../../../ObjectValue";
-import { Identity, Lookup } from "../../..";
+import { IdValue } from "./../../../../object-value";
+import { Identity, Lookup } from "./../../../domain";
 
 export abstract class DbLookup implements Lookup, Identity {
 

@@ -1,5 +1,4 @@
-import { IdValue } from "../../ObjectValue/IdValue";
-import { Entity } from "./entity";
+import { IdValue } from "./../../object-value";
 
 export interface EditRepository {
 

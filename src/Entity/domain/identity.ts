@@ -1,4 +1,4 @@
-import { IdValue } from "../../ObjectValue";
+import { IdValue } from "./../../object-value";
 
 /**
  * 

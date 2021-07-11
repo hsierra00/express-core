@@ -1,31 +1,21 @@
-import { IdValue } from "../../ObjectValue/IdValue";
-import { Entity, QueryFilter } from "..";
+import { IdValue } from "./../../object-value";
+import { Entity, QueryFilter } from "./";
 
 export interface ReadRepository {
 
     /**
      * 
      */
-    findAll(): Promise<Entity[]>;
+    findAll(filter?: QueryFilter): Promise<Entity[]>;
 
     /**
      * 
      */
-    findAllFilter(filter: QueryFilter): Promise<Entity[]>;
-
-    /**
-     * 
-     */
-    findAllByClient(id: IdValue): Promise<Entity[]>;
-
-    /**
-     * 
-     */
-    findAllFilterByClient(id: IdValue, filter: QueryFilter): Promise<Entity[]>;
+    findAllByClient(id: IdValue, filter?: QueryFilter): Promise<Entity[]>;
 
     /**
      * 
      * @param id 
      */
-    findById(id: IdValue): Promise<Entity>;
+    findById(id: IdValue): Promise<Entity | undefined>;
 }
