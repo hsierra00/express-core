@@ -3,3 +3,8 @@ export * from './identity';
 export * from './readRepository';
 export * from './editRepository';
 export * from './status';
+export * from './lookup';
+export * from './enterprise-client';
+export * from './query-filter';
+export * from './operation-result';
+export * from './operation';

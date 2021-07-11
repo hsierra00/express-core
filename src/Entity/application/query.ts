@@ -2,7 +2,7 @@ import { IdValue } from "../../ObjectValue";
 import { Entity, ReadRepository } from "../Domain";
 
 export class Query {
-    private repository: ReadRepository;
+    protected repository: ReadRepository;
 
     /**
      *
@@ -23,5 +23,12 @@ export class Query {
             throw new Error("Invalid arguments");
         }
         return this.repository.findById(id);
+    }
+
+    findAllByClient(id: IdValue): Promise<Entity[]> {
+        if (id === null || id === undefined || id.value === null) {
+            throw new Error("Invalid arguments");
+        }
+        return this.repository.findAllByClient(id);
     }
 }

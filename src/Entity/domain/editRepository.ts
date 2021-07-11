@@ -6,21 +6,21 @@ export interface EditRepository {
     /**
      * 
      */
-    create(item: Entity): void;
+    create(item: any): Promise<any>;
 
     /**
     * 
     */
-    update(item: Entity): void;
+    update(item: any): Promise<any>;
 
     /**
      * 
      * @param id 
      */
-    delete(id: IdValue): void;
+    delete(id: IdValue): Promise<any>;
 
     /**
      * 
      */
-    persist(item: Entity): void;
+    persist(item: any): Promise<any>;
 }
