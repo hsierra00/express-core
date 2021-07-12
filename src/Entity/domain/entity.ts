@@ -2,5 +2,5 @@
  * 
  */
 export interface Entity {
-    id: number | string | undefined;
+    id: number | string | undefined | null;
 }
