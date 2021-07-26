@@ -1,4 +1,4 @@
-import { DeepPartial, Repository } from "typeorm";
+import { DeepPartial, Repository, Transaction } from "typeorm";
 import { IdValue } from "./../../../../object-value";
 import { EditRepository, Entity, QueryFilter, ReadRepository } from "./../../../domain";
 
@@ -78,6 +78,19 @@ export class TypeOrmRepository<T extends Entity> implements ReadRepository, Edit
         }
         const item: T | undefined = await this.repository.findOne(id.value);
         return this.repository.remove(item as T);
+    }
+
+    /**
+     * 
+     * @param ids
+     * @returns 
+     */
+    async deletes(ids: IdValue[]): Promise<void> {
+        await this.repository.manager.transaction(async transactional => {
+            ids.forEach((id: IdValue) => {
+                this.delete(id);
+            })
+        });
     }
 
     /**

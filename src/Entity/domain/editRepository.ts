@@ -20,6 +20,12 @@ export interface EditRepository {
 
     /**
      * 
+     * @param ids 
+     */
+    deletes(ids: IdValue[]): Promise<any>;
+
+    /**
+     * 
      */
     persist(item: any): Promise<any>;
 }
